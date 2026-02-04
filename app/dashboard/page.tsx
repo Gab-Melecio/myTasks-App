@@ -482,9 +482,39 @@ export default function Dashboard() {
 
               {/* Kanban Board */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <KanbanColumn title="To Do" tasks={todoTasks} status="todo" onAddTask={handleOpenModal} onMoveTask={handleMoveTask} onEditTask={handleOpenModal} onDeleteTask={handleDeleteTask} countColor="bg-gray-200 text-gray-600" borderColor="border-t-gray-300 border-t-2" />
-                <KanbanColumn title="In Progress" tasks={inProgressTasks} status="inprogress" onAddTask={handleOpenModal} onMoveTask={handleMoveTask} onEditTask={handleOpenModal} onDeleteTask={handleDeleteTask} countColor="bg-blue-100 text-blue-600" borderColor="border-t-blue-500 border-t-2" />
-                <KanbanColumn title="Done" tasks={doneTasks} status="done" onAddTask={handleOpenModal} onMoveTask={handleMoveTask} onEditTask={handleOpenModal} onDeleteTask={handleDeleteTask} countColor="bg-green-100 text-green-600" borderColor="border-t-green-500 border-t-2" />
+                <KanbanColumn 
+                  title="To Do" 
+                  tasks={todoTasks} 
+                  status="todo" 
+                  onAddTask={(status) => handleOpenModal(null, status)} 
+                  onMoveTask={handleMoveTask} 
+                  onEditTask={(task) => handleOpenModal(task)} 
+                  onDeleteTask={handleDeleteTask} 
+                  countColor="bg-gray-200 text-gray-600" 
+                  borderColor="border-t-gray-300 border-t-2" 
+                />
+                <KanbanColumn 
+                  title="In Progress" 
+                  tasks={inProgressTasks} 
+                  status="inprogress" 
+                  onAddTask={(status) => handleOpenModal(null, status)} 
+                  onMoveTask={handleMoveTask} 
+                  onEditTask={(task) => handleOpenModal(task)} 
+                  onDeleteTask={handleDeleteTask} 
+                  countColor="bg-blue-100 text-blue-600" 
+                  borderColor="border-t-blue-400 border-t-2" 
+                />
+                <KanbanColumn 
+                  title="Done" 
+                  tasks={doneTasks} 
+                  status="done" 
+                  onAddTask={(status) => handleOpenModal(null, status)} 
+                  onMoveTask={handleMoveTask} 
+                  onEditTask={(task) => handleOpenModal(task)} 
+                  onDeleteTask={handleDeleteTask} 
+                  countColor="bg-green-100 text-green-600" 
+                  borderColor="border-t-green-400 border-t-2" 
+                />
               </div>
             </div>
           ) : (
